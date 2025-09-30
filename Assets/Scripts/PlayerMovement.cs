@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
     private float moveSpeed = 3;
+    public Camera cam;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,16 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = new Vector2(moveInputX * moveSpeed, moveInputY * moveSpeed);
 
-        // Look at mouse
+        // Player teleport/dash in the direction they are looking
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.transform.position += transform.up * 5f;
+        }
+        
+        // Camera follow player
+        cam.transform.position = new Vector3(rb.transform.position.x, rb.transform.position.y, cam.transform.position.z);
+
+        // Look at mouse (borrowed from an answer at https://discussions.unity.com/t/2d-look-at-mouse-position-z-rotation-c/117860/2)
         // convert mouse position into world coordinates
         Vector2 mouseScreenPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
