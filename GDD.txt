@@ -1,0 +1,16 @@
+Game Design Document (Devcon 1, Rapid prototype 2)
+
+**Desired Game Mechanic**
+The desired game mechanic for this rapid prototype is the ability to teleport a tile or two in front of where you are currently standing. This mechanic would be used in a 2D top-down game (Think Zelda), and the enemy the player faces will be completely invincible from the front, but vulnerable from the back. The player will have to teleport behind the enemy to damage it.
+
+**Objective Statement**
+Is it satisfying to avoid projectiles and then teleport behind an enemy at the right time?
+
+**Intended Experience**
+The intended experience is for the player to "line up" the character so that they can teleport behind the enemy, invoking timing, strategy and excitement. This mechanic is unique because instead of the normal gameplay loop of running up and hitting an enemy, this mechanic adds an extra step to dealing damage, causing the player to rethink their strategy.
+
+**Design Rationale**
+This mechanic would be found in a dungeon, which would be one area in a larger open world. There would be multiple dungeons, probably around eight or nine, each with a new unlockable ability required to reach the next dungeon. The ability in the prototype's dungeon is, of course, the teleporting.
+
+**The Enemy**
+The only enemy in the prototype is a monster that has complete protection on it's front side. it moves side-to-side in a very simple pattern, and every couple of seconds it spits out three projectiles that slowly spread out. If the player gets hit by a projectile, it's game over. 
