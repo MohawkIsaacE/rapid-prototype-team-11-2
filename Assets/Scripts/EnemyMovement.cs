@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public GameObject rb;
+    public Rigidbody2D rb;
     public GameObject player;
+    private float moveSpeed = 3f;
+    private int direction;
 
     public Rigidbody2D projectile;
     public float projectileSpeed = 4;
@@ -19,8 +21,7 @@ public class EnemyMovement : MonoBehaviour
         timer = timerCooldown;
     }
 
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         // Look at the player
         rb.transform.up = player.transform.position - rb.transform.position;
@@ -31,15 +32,38 @@ public class EnemyMovement : MonoBehaviour
         {
             timer -= Time.deltaTime;
 
-            if (timer <= 0f)
+            if (timer <= 0)
             {
                 timer = timerCooldown;
                 isShootOnCooldown = false;
+                moveSpeed = 3f;
+            }
+
+            if (timer <= 3)
+            {
+                moveSpeed = 0;
             }
         }
         else
         {
             ShootProjectile();
+            // Choose a direction to move; 0 is right, 1 is left
+            direction = Random.Range(0, 2);
+        }
+
+        MoveEnemy();
+    }
+
+    private void MoveEnemy()
+    {
+        // Move enemy based on direction; 0 is right, 1 is left
+        if (direction == 0)
+        {
+            rb.velocity = transform.right * moveSpeed;
+        }
+        else if (direction == 1)
+        {
+            rb.velocity = -transform.right * moveSpeed;
         }
     }
 

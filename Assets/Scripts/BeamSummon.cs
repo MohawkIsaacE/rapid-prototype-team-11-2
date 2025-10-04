@@ -43,7 +43,7 @@ public class BeamSummon : MonoBehaviour
 
         Rigidbody2D b = Instantiate(beam, transform.position, transform.rotation);
         
-        // 0 is move up, 1 is move right, 2 is move down, 3 is move left
+        // 0 is move up, 1 is move left, 2 is move down, 3 is move right
         if (direction == 0) b.transform.position = new Vector2(0, -25);
         if (direction == 1) { b.transform.position = new Vector2(25, 0); b.transform.Rotate(0, 0, 90); }
         if (direction == 2) { b.transform.position = new Vector2(0, 25); b.transform.Rotate(0, 0, 180); }

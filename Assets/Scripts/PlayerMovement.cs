@@ -49,13 +49,11 @@ public class PlayerMovement : MonoBehaviour
             // set vector of transform directly
             transform.up = direction;
         }
-        else
+
+        // Reset game
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            // Reset game
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                SceneManager.LoadScene(0);
-            }
+            SceneManager.LoadScene(0);
         }
     }
 
@@ -65,6 +63,11 @@ public class PlayerMovement : MonoBehaviour
         {
             gameObject.GetComponent<Renderer>().enabled = false;
             isAlive = false;
+        }
+
+        if (collision.gameObject.tag == "WeakSpot")
+        {
+            Destroy(collision.gameObject.transform.parent.gameObject);
         }
     }
 }
