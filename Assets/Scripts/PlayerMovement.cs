@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
         // Camera follow player
         cam.transform.position = new Vector3(rb.transform.position.x, rb.transform.position.y, cam.transform.position.z);
 
-        // Look at mouse (borrowed from an answer at https://discussions.unity.com/t/2d-look-at-mouse-position-z-rotation-c/117860/2)
+        // Look at mouse (copied from an answer at https://discussions.unity.com/t/2d-look-at-mouse-position-z-rotation-c/117860/2)
         // convert mouse position into world coordinates
         Vector2 mouseScreenPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
